@@ -25,12 +25,13 @@ class CommentsList extends Component {
     }
 
     return (
-      <div>
+      <div className="list">
       {comments.map(
         (comment, index) => {
           return (
             <Comment
               key={index}
+              index={index}
               author={comment.author}
               message={comment.message}
               date={comment.date}

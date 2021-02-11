@@ -3,6 +3,8 @@ import { PropTypes } from 'prop-types'
 import CommentsList from './CommentsList';
 import CommentForm from './CommentForm';
 
+import './Comments.css';
+
 class CommentsWidget extends Component {
   constructor(props) {
     super(props);
@@ -47,18 +49,17 @@ class CommentsWidget extends Component {
     let deleteComment = (index) => {
       const { comments } = this.state;
 
-      const newComments = comments.splice(index, 1);
+      comments.splice(index, 1);
+      this.saveComments(comments);
 
-      this.saveComments(newComments);
-
-      this.setState({ comments: newComments });
+      this.setState({ comments: comments });
       this.forceUpdate();
     }
 
     const { comments } = this.state;
 
     return (
-      <div>
+      <div className="widget-commets">
         <CommentsList
           comments={comments}
           delete={deleteComment}
