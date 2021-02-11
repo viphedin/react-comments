@@ -6,6 +6,10 @@ class Comment extends Component {
   static propTypes = {
     delete: PropTypes.func.isRequired,
     index: PropTypes.number,
+    author: PropTypes.string,
+    message: PropTypes.string,
+    date: PropTypes.string,
+    time: PropTypes.string,
   };
 
   constructor(props) {
@@ -23,7 +27,7 @@ class Comment extends Component {
       <div className="item">
         <span>Автор: {author}</span>
         <p>{message}</p>
-        <span className="date">{date}, {time}</span>
+        <span className="date">{date} {time}</span>
         <div className="delete" onClick={deleteComment}>Х</div>
       </div>
     )
